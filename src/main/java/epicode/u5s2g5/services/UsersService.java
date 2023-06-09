@@ -71,6 +71,7 @@ public class UsersService {
 		while (i.hasNext()) {
 			Dispositivo current = i.next();
 			current.setStatoDispositivo(StatoDispositivo.DISPONIBILE);
+			current.setUser(null);
 
 		}
 		usersRepo.delete(found);
