@@ -56,6 +56,7 @@ public class UsersService {
 		found.setNome(u.getNome());
 		found.setCognome(u.getCognome());
 		found.setEmail(u.getEmail());
+		found.setPassword(u.getPassword());
 		found.setDispositivi(found.getDispositivi());
 
 		return usersRepo.save(found);
