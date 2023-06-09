@@ -2,6 +2,8 @@ package epicode.u5s2g5.entities;
 
 import java.util.UUID;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -29,6 +31,7 @@ public class Dispositivo {
 	@Enumerated(EnumType.STRING)
 	private StatoDispositivo statoDispositivo;
 	@ManyToOne
+	@JsonBackReference
 	private User user;
 
 	public Dispositivo(TipoDispositivo tipo, StatoDispositivo statoDispositivo, User user) {
