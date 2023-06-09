@@ -53,7 +53,7 @@ public class DispositiviController {
 	}
 
 	@PutMapping("/{id}")
-	public Dispositivo updateUser(@PathVariable UUID id, @RequestBody ModificaDispositivoPayload body)
+	public Dispositivo updateDispositivo(@PathVariable UUID id, @RequestBody ModificaDispositivoPayload body)
 			throws Exception {
 		return dispositiviService.findByIdAndUpdate(id, body);
 	}

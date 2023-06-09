@@ -10,6 +10,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import epicode.u5s2g5.entities.Dispositivo;
+import epicode.u5s2g5.entities.StatoDispositivo;
 import epicode.u5s2g5.entities.User;
 import epicode.u5s2g5.entities.payloads.ModificaDispositivoPayload;
 import epicode.u5s2g5.entities.payloads.NewDispositivoPayload;
@@ -55,7 +56,7 @@ public class DispositiviService {
 
 		found.setId(id);
 		found.setTipo(d.getTipoDispositivo());
-		found.setStatoDispositivo(d.getStatoDispositivo());
+		found.setStatoDispositivo(StatoDispositivo.ASSEGNATO);
 		found.setUser(foundUser);
 
 		return dispositiviRepo.save(found);
