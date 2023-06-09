@@ -1,6 +1,7 @@
 package epicode.u5s2g5.services;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
 
@@ -12,6 +13,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import epicode.u5s2g5.entities.Dispositivo;
+import epicode.u5s2g5.entities.StatoDispositivo;
 import epicode.u5s2g5.entities.User;
 import epicode.u5s2g5.entities.payloads.UserRegistrationPayload;
 import epicode.u5s2g5.exceptions.BadRequestException;
@@ -64,6 +66,13 @@ public class UsersService {
 
 	public void findByIdAndDelete(UUID id) throws NotFoundException {
 		User found = this.findById(id);
+		List<Dispositivo> dispositivi = found.getDispositivi();
+		Iterator<Dispositivo> i = dispositivi.iterator();
+		while (i.hasNext()) {
+			Dispositivo current = i.next();
+			current.setStatoDispositivo(StatoDispositivo.DISPONIBILE);
+
+		}
 		usersRepo.delete(found);
 	}
 
